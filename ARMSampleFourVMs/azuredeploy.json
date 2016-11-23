@@ -88,6 +88,14 @@
       "metadata": {
         "description": "The Workspace Key is the Operations Management Suite Workspace Key found in the OMS Console under Settings and Connected Sources"
       }
+    },
+    "aswinName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "asubuntuName": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "variables": {
@@ -208,7 +216,8 @@
           {
             "name": "ipconfig1",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "PrivateIpAddress": "10.0.0.4",
+              "privateIPAllocationMethod": "Static",
               "subnet": {
                 "id": "[variables('win01SubnetRef')]"
               },
@@ -233,6 +242,9 @@
         "displayName": "win01"
       },
       "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('aswinName'))]"
+        },
         "hardwareProfile": {
           "vmSize": "[variables('win01VmSize')]"
         },
@@ -635,7 +647,8 @@
           {
             "name": "ipconfig1",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "PrivateIpAddress": "10.0.0.5",
+              "privateIPAllocationMethod": "Static",
               "subnet": {
                 "id": "[variables('win02SubnetRef')]"
               },
@@ -660,6 +673,9 @@
         "displayName": "win02"
       },
       "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('aswinName'))]"
+        },
         "hardwareProfile": {
           "vmSize": "[variables('win02VmSize')]"
         },
@@ -1062,7 +1078,8 @@
           {
             "name": "ipconfig1",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "PrivateIpAddress": "10.0.1.4",
+              "privateIPAllocationMethod": "Static",
               "subnet": {
                 "id": "[variables('ubuntu01SubnetRef')]"
               },
@@ -1087,6 +1104,9 @@
         "displayName": "ubuntu01"
       },
       "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('asubuntuName'))]"
+        },
         "hardwareProfile": {
           "vmSize": "[variables('ubuntu01VmSize')]"
         },
@@ -1436,7 +1456,8 @@
           {
             "name": "ipconfig1",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "PrivateIpAddress": "10.0.1.5",
+              "privateIPAllocationMethod": "Static",
               "subnet": {
                 "id": "[variables('ubuntu02SubnetRef')]"
               },
@@ -1461,6 +1482,9 @@
         "displayName": "ubuntu02"
       },
       "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('asubuntuName'))]"
+        },
         "hardwareProfile": {
           "vmSize": "[variables('ubuntu02VmSize')]"
         },
@@ -1855,6 +1879,34 @@
         "dnsSettings": {
           "domainNameLabel": "[parameters('ubuntu02Nic-pipDnsName')]"
         }
+      }
+    },
+    {
+      "name": "[parameters('aswinName')]",
+      "type": "Microsoft.Compute/availabilitySets",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "aswin"
+      },
+      "properties": {
+        "platformUpdateDomainCount": 3,
+        "platformFaultDomainCount": 3
+      }
+    },
+    {
+      "name": "[parameters('asubuntuName')]",
+      "type": "Microsoft.Compute/availabilitySets",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "asubuntu"
+      },
+      "properties": {
+        "platformUpdateDomainCount": 3,
+        "platformFaultDomainCount": 3
       }
     }
   ],
