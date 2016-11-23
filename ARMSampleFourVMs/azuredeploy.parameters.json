@@ -2,5 +2,41 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "win01Name": {
+            "value": "win01"
+        },
+        "win01AdminUserName": {
+            "value": "yusukeoi"
+        },
+        "win02Name": {
+            "value": "win02"
+        },
+        "ubuntu01Name": {
+            "value": "ubuntu01"
+        },
+        "ubuntu01AdminUserName": {
+            "value": "yusukeoi"
+        },
+        "ubuntu02Name": {
+            "value": "ubuntu02"
+        },
+        "win01Nic-pipDnsName": {
+            "value": "yooiarmwin01"
+        },
+        "win02Nic-pipDnsName": {
+            "value": "yooiarmwin02"
+        },
+        "ubuntu01Nic-pipDnsName": {
+            "value": "yooiarmubuntu01"
+        },
+        "ubuntu02Nic-pipDnsName": {
+            "value": "yooiarmubuntu02"
+        },
+        "workspaceId": {
+            "value": "1794fb8b-4bb1-4386-a221-7a58d3767073"
+        },
+        "workspaceKey": {
+            "value": "iovOTH8Qligmofxh3EZYpA4A3g/lVocYVV9YFTePlF+Nl500MaVDYdRic2bwvEKNFHcWigeTYqAGJiQIOLZM8Q=="
+        }
     }
 }
