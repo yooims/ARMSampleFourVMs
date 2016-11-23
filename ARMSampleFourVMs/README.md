@@ -1,14 +1,15 @@
-# Blank Template
+# Sample Four VMs
 
-Following resources are added using Visual Studio Azure SDK Wizard
-- VNet
-- VM
-- Storage Account
-- Diag Extensions
-- OMS Extensions
-- Availability Set
+ブランクのテンプレートをもとに、以下の項目をVisual Studioのウィザードで追加した
+- 仮想ネットワーク
+- 仮想マシン×4
+- ストレージアカウント
+- 診断拡張機能(各仮想マシンに対して)
+- OMS拡張機能(各仮想マシンに対して)
+- 可用性セット
 
-Following modifications are implemented manually
-- Static private ip address for all VMs
-- Antimalware extensions for all Windows VMs
-- Availabity Set for all VMs
+以下の項目については手動でJSONを編集した
+
+- 各仮想マシンのプライベートIPを動的から静的に
+- アンチマルウェア拡張機能(各Windows仮想マシンに対して)
+- 可用性セットの指定およびdependsOnへの可用性セットの追記(各仮想マシンに対して)

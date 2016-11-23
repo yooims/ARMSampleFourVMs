@@ -236,7 +236,8 @@
       "apiVersion": "2015-06-15",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('armsaName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('win01NicName'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('win01NicName'))]",
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('aswinName'))]"
       ],
       "tags": {
         "displayName": "win01"
@@ -667,7 +668,8 @@
       "apiVersion": "2015-06-15",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('armsaName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('win02NicName'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('win02NicName'))]",
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('aswinName'))]"
       ],
       "tags": {
         "displayName": "win02"
@@ -1098,7 +1100,8 @@
       "apiVersion": "2015-06-15",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('armsaName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('ubuntu01NicName'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('ubuntu01NicName'))]",
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('asubuntuName'))]"
       ],
       "tags": {
         "displayName": "ubuntu01"
@@ -1476,7 +1479,8 @@
       "apiVersion": "2015-06-15",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('armsaName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('ubuntu02NicName'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('ubuntu02NicName'))]",
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('asubuntuName'))]"
       ],
       "tags": {
         "displayName": "ubuntu02"
